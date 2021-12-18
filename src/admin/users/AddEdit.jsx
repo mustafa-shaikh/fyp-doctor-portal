@@ -13,7 +13,7 @@ function AddEdit({ history, match }) {
         title: '',
         firstName: '',
         lastName: '',
-        accountStatus: '',
+        doctorStatus: '',
         email: '',
         role: '',
         password: '',
@@ -27,7 +27,7 @@ function AddEdit({ history, match }) {
             .required('First Name is required'),
         lastName: Yup.string()
             .required('Last Name is required'),
-        accountStatus: Yup.string()
+        doctorStatus: Yup.string()
             .required('Status is required'),
         email: Yup.string()
             .email('Email is invalid')
@@ -84,7 +84,7 @@ function AddEdit({ history, match }) {
                     if (!isAddMode) {
                         // get user and set form fields
                         accountService.getById(id).then(user => {
-                            const fields = ['title', 'firstName', 'lastName', 'accountStatus', 'email', 'role'];
+                            const fields = ['title', 'firstName', 'lastName', 'doctorStatus', 'email', 'role'];
                             fields.forEach(field => setFieldValue(field, user[field], false));
                         });
                     }
@@ -133,12 +133,12 @@ function AddEdit({ history, match }) {
                             </div>
                             <div className="form-group col">
                                 <label>Status</label>
-                                <Field name="accountStatus" as="select" className={'form-control' + (errors.accountStatus && touched.accountStatus ? ' is-invalid' : '')}>
+                                <Field name="doctorStatus" as="select" className={'form-control' + (errors.doctorStatus && touched.doctorStatus ? ' is-invalid' : '')}>
                                     <option value=""></option>
                                     <option value="unauthorized">Unauthorized</option>
                                     <option value="authorized">Authorized</option>
                                 </Field>
-                                <ErrorMessage name="accountStatus" component="div" className="invalid-feedback" />
+                                <ErrorMessage name="doctorStatus" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         {!isAddMode &&

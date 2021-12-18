@@ -39,13 +39,13 @@ function Nav() {
                         <NavLink to="/profile" className="fluid-container">
                             <img src={profilePic} className="rounded float-left"  alt="" width="35%" height="35%" />
                             <p className="text-center">{user.firstName} {user.lastName}</p>
-                            <p className="text-center">{user.role }</p>
+
                         </NavLink>
                         </li>
                     <li>
                         <NavLink exact to="/" className="fa fa-home">Dashboard</NavLink>
                     </li>
-                    {user.role === Role.Admin &&
+                    {user.doctorStatus === Status.Authorized &&
                         <li>
                             <NavLink to="/admin" className="fa fa-tachometer">Admin</NavLink>
                         </li>

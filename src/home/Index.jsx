@@ -9,7 +9,7 @@ function Home() {
         <div className="content-container">
             <div className="container-fluid">
                 <div className="jumbotron">
-                    <h1>Hi {user.firstName}!</h1>
+                    <h1>Hi {user.firstName} {user.lastName}!</h1>
                 </div>
             </div>
         </div>

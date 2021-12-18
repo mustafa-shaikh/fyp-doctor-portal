@@ -14,11 +14,11 @@ function PrivateRoute({ component: Component, roles, ...rest }) {
 
             // check if route is restricted by role
             if (roles && roles.indexOf(user.role) === -1) {
-                // role not authorized so redirect to home page
+                // role not Authorized so redirect to home page
                 return <Redirect to={{ pathname: '/'}} />
             }
 
-            // authorized so return component
+            // Authorized so return component
             return <Component {...props} />
         }} />
     );
