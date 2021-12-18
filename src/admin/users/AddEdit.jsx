@@ -135,8 +135,8 @@ function AddEdit({ history, match }) {
                                 <label>Status</label>
                                 <Field name="accountStatus" as="select" className={'form-control' + (errors.accountStatus && touched.accountStatus ? ' is-invalid' : '')}>
                                     <option value=""></option>
-                                    <option value="unapproved">Unapproved</option>
-                                    <option value="approved">Approved</option>
+                                    <option value="unauthorized">Unauthorized</option>
+                                    <option value="authorized">Authorized</option>
                                 </Field>
                                 <ErrorMessage name="accountStatus" component="div" className="invalid-feedback" />
                             </div>

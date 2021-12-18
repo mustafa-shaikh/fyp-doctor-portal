@@ -4,6 +4,6 @@ export const Role = {
 }
 
 export const Status  = {
-    Approved: 'approved',
-    Unapproved : 'unapproved',
+    Authorized: 'authorized',
+    Unauthorized : 'unauthorized',
 }
