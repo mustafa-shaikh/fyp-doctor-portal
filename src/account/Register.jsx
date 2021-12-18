@@ -50,6 +50,11 @@ function Register({ history }) {
     }
 
     return (
+        <>
+        <div className="sidebar-logo text-left">
+                    <h1 className="fs-2 fw-bold">E-Health</h1>
+                    <h6 className="fs-6 text-right fst-italic">Doctor's Portal</h6>
+                </div>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {({ errors, touched, isSubmitting }) => (
                 <Form>
@@ -105,12 +110,13 @@ function Register({ history }) {
                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                 Register
                             </button>
-                            <Link to="login" className="btn btn-link">Cancel</Link>
+                            <Link to="login" className=" ml-2 btn btn-secondary">Cancel</Link>
                         </div>
                     </div>
                 </Form>
             )}
         </Formik>
+        </>
     )
 }
 
