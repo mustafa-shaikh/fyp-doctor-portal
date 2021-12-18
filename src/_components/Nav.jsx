@@ -25,10 +25,10 @@ function Nav() {
                     <h6 className="fs-6 fst-italic">Doctor's Portal</h6>
                 </div>
                     <div className="fa fa-home">
-                        {user.accountStatus === Status.Approved &&
+                        {user.doctorStatus === Status.Authorized &&
                             <p className="bg-success text-center" disabled ><br/></p>
                         }
-                        {user.accountStatus === Status.Unapproved &&
+                        {user.doctorStatus === Status.Unauthorized &&
                             <p className="bg-danger text-center" disabled >Access Unauthorized</p>
                         }
                     </div>
