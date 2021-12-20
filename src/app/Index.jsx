@@ -6,7 +6,7 @@ import { accountService } from '@/_services';
 import { Nav, PrivateRoute, Alert } from '@/_components';
 import { Home } from '@/home';
 import { Profile } from '@/profile';
-import { Admin } from '@/admin';
+import { Manage } from '@/manage';
 import { Account } from '@/account';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
                 <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
                 <PrivateRoute exact path="/" component={Home} />
                 <PrivateRoute path="/profile" component={Profile} />
-                <PrivateRoute path="/admin" roles={[Role.Doctor]} component={Admin} />
+                <PrivateRoute path="/manage" roles={[Role.Doctor]} component={Manage} />
                 <Route path="/account" component={Account} />
                 <Redirect from="*" to="/" />
             </Switch>

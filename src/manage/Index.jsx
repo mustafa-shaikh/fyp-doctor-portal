@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Overview } from './Overview';
 import { Users } from './users';
 
-function Admin({ match }) {
+function Manage({ match }) {
     const { path } = match;
 
     return (
@@ -21,4 +21,4 @@ function Admin({ match }) {
     );
 }
 
-export { Admin };
+export { Manage };

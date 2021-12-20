@@ -12,6 +12,7 @@ function Update({ history }) {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
+        city: user.city,
         password: '',
         confirmPassword: ''
     };
@@ -23,9 +24,11 @@ function Update({ history }) {
             .required('First Name is required'),
         lastName: Yup.string()
             .required('Last Name is required'),
-        email: Yup.string()
-            .email('Email is invalid')
-            .required('Email is required'),
+        city: Yup.string()
+            .required('City is required'),
+        // email: Yup.string()
+        //     .email('Email is invalid')
+        //     .required('Email is required'),
         password: Yup.string()
             .min(6, 'Password must be at least 6 characters'),
         confirmPassword: Yup.string()
@@ -67,10 +70,10 @@ function Update({ history }) {
                             <label>Title</label>
                             <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
                                 <option value=""></option>
-                                <option value="Mr">Mr</option>
-                                <option value="Mrs">Mrs</option>
-                                <option value="Miss">Miss</option>
-                                <option value="Ms">Ms</option>
+                                <option value="MBBS">MBBS</option>
+                                <option value="MRCP">MRCP</option>
+                                <option value="FCPS">FCPS</option>
+                                <option value="FRCP">FRCP</option>
                             </Field>
                             <ErrorMessage name="title" component="div" className="invalid-feedback" />
                         </div>
@@ -85,11 +88,29 @@ function Update({ history }) {
                             <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                         </div>
                     </div>
-                    <div className="form-group">
+                    
+
+                    <div className="form-row">
+                        <div className="form-group col">
                         <label>Email</label>
-                        <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                        <Field name="email" type="text" readOnly className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
                         <ErrorMessage name="email" component="div" className="invalid-feedback" />
                     </div>
+                    
+                    <div className="form-group col-3">
+                            <label>City</label>
+                            <Field name="city" as="select" className={'form-control' + (errors.city && touched.city ? ' is-invalid' : '')}>
+                                <option value=""></option>
+                                <option value="Gilgit">Gilgit</option>
+                                <option value="Islamabad">Islamabad</option>
+                                <option value="Karachi">Karachi</option>
+                                <option value="Lahore">Lahore</option>
+                                <option value="Peshawar">Peshawar</option>
+                                <option value="Quetta">Quetta</option>
+                            </Field>
+                            <ErrorMessage name="city" component="div" className="invalid-feedback" />
+                        </div>
+                        </div>
                     <h3 className="pt-3">Change Password</h3>
                     <p>Leave blank to keep the same password</p>
                     <div className="form-row">

@@ -8,16 +8,15 @@ import { accountService, alertService } from '@/_services';
 function AddEdit({ history, match }) {
     const { id } = match.params;
     const isAddMode = !id;
-
+    const user = accountService.userValue;
     const initialValues = {
-        title: '',
-        firstName: '',
-        lastName: '',
-        doctorStatus: '',
-        email: '',
-        role: '',
-        password: '',
-        confirmPassword: ''
+        title: user.title,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        city: user.city,
+        hospital: '',
+        ndi: ''
     };
 
     const validationSchema = Yup.object().shape({
@@ -94,71 +93,31 @@ function AddEdit({ history, match }) {
                     <Form>
                         <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
                         <div className="form-row">
-                            <div className="form-group col">
+                        <div className="form-group col-5">
                                 <label>Title</label>
-                                <Field name="title" as="select" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')}>
-                                    <option value=""></option>
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Miss">Miss</option>
-                                    <option value="Ms">Ms</option>
-                                </Field>
+                                <Field name="title" type="text" readOnly className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')} />
                                 <ErrorMessage name="title" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>First Name</label>
-                                <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
+                                <Field name="firstName" type="text" readOnly className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
                                 <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group col-5">
                                 <label>Last Name</label>
-                                <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
+                                <Field name="lastName" type="text" readOnly className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
                                 <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                             </div>
                         </div>
                         <div className="form-row">
                             <div className="form-group col-7">
                                 <label>Email</label>
-                                <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                                <Field name="email" type="text" readOnly className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
                                 <ErrorMessage name="email" component="div" className="invalid-feedback" />
                             </div>
-                            <div className="form-group col">
-                                <label>Role</label>
-                                <Field name="role" as="select" className={'form-control' + (errors.role && touched.role ? ' is-invalid' : '')}>
-                                    <option value=""></option>
-                                    <option value="User">User</option>
-                                    <option value="Admin">Admin</option>
-                                </Field>
-                                <ErrorMessage name="role" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group col">
-                                <label>Status</label>
-                                <Field name="doctorStatus" as="select" className={'form-control' + (errors.doctorStatus && touched.doctorStatus ? ' is-invalid' : '')}>
-                                    <option value=""></option>
-                                    <option value="unauthorized">Unauthorized</option>
-                                    <option value="authorized">Authorized</option>
-                                </Field>
-                                <ErrorMessage name="doctorStatus" component="div" className="invalid-feedback" />
-                            </div>
+                            
                         </div>
-                        {!isAddMode &&
-                            <div>
-                                <h3 className="pt-3">Change Password</h3>
-                                <p>Leave blank to keep the same password</p>
-                            </div>
-                        }
-                        <div className="form-row">
-                            <div className="form-group col">
-                                <label>Password</label>
-                                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
-                                <ErrorMessage name="password" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group col">
-                                <label>Confirm Password</label>
-                                <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
-                                <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
-                            </div>
-                        </div>
+                        
                         <div className="form-group">
                             <button type="submit" disabled={isSubmitting} className="btn btn-primary">
                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}

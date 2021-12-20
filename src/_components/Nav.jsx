@@ -38,7 +38,9 @@ function Nav() {
                         <li>
                         <NavLink to="/profile" className="fluid-container">
                             <img src={profilePic} className="rounded float-left"  alt="" width="35%" height="35%" />
-                            <p className="text-center">{user.firstName} {user.lastName}</p>
+                            <p className="text-center">Dr. {user.firstName} {user.lastName}</p>
+                            <p className="text-center">{user.title}</p>
+
 
                         </NavLink>
                         </li>
@@ -47,20 +49,20 @@ function Nav() {
                     </li>
                     {user.doctorStatus === Status.Authorized &&
                         <li>
-                            <NavLink to="/admin" className="fa fa-tachometer">Admin</NavLink>
+                            <NavLink to="/manage" className="fa fa-tachometer">Manage</NavLink>
                         </li>
                     }
                     <li>
                         <a onClick={accountService.logout} className="fa fa-tachometer">Logout</a>
                     </li>
-                    <Route path="/admin" component={AdminNav} />
+                    <Route path="/manage" component={ManageNav} />
                 </ul>
             </div >
         </div >
     );
 }
 
-function AdminNav({ match }) {
+function ManageNav({ match }) {
     const { path } = match;
 
     return (
