@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { accountService } from '@/_services';
+//import qr from './QR.png';
+
 
 function Details({ match }) {
     const { path } = match;
@@ -16,6 +18,9 @@ function Details({ match }) {
             </p>
             <p><Link to={`${path}/update`}>Update Profile</Link></p>
         </div>
+        // <div className="qr">
+        //     <img src={QR} alt= "QR image" height={200} width={200} />
+        // </div>
     );
 }
 

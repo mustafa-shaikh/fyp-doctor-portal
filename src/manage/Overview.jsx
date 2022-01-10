@@ -8,6 +8,7 @@ function Overview({ match }) {
         <div>
             <h1>Manage</h1>
             <p>This section can only be accessed by administrators.</p>
+            <p>Manage your hospitals here</p>
             <p><Link to={`${path}/users`}>Manage Users</Link></p>
         </div>
     );

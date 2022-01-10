@@ -110,7 +110,20 @@ function Update({ history }) {
                             </Field>
                             <ErrorMessage name="city" component="div" className="invalid-feedback" />
                         </div>
-                        </div>
+
+                        {/* <div className="form-group col">
+                            <label>Hospital</label>
+                            <Field name="hospital" as="select" className={'form-control' + (errors.hospital && touched.title ? ' is-invalid' : '')}>
+                                <option value=""></option>
+                                <option value="AKU">AKU</option>
+                                <option value="LNH">LNH</option>
+                                <option value="NMC">NMC</option>
+                                <option value="SC">SC</option>
+                            </Field>
+                            <ErrorMessage name="title" component="div" className="invalid-feedback" />
+                        </div> */}
+
+                    </div>
                     <h3 className="pt-3">Change Password</h3>
                     <p>Leave blank to keep the same password</p>
                     <div className="form-row">
